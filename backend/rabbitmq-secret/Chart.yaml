@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: "0.1"
+description: RabbitMQ secret
+home: https://helm.sh/helm
+name: rabbitmq-secret
+sources:
+  - https://github.com/helm/helm
+version: 0.1.0

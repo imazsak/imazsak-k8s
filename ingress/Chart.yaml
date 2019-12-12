@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: "0.1"
+description: Imazsak ingress
+home: https://helm.sh/helm
+name: ingress
+sources:
+  - https://github.com/helm/helm
+version: 0.1.0

@@ -1,0 +1,6 @@
+admin:
+  image: docker.pkg.github.com/imazsak/imazsak-admin/imazsak-admin
+  image_version:
+web:
+  image: docker.pkg.github.com/imazsak/imazsak-client/imazsak-client
+  image_version:

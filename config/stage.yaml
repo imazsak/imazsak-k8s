@@ -1,0 +1,39 @@
+namespace: imazsak-stage
+subcomponents:
+  frontend:
+    config:
+      admin:
+        image_version: 139738d07e590aba412e5bf579df14ec34ac0ab4
+      web:
+        image_version: 1a3619a6b1d0420392f7d50b94f473c4b0ef8b5c
+  ingress:
+    config:
+      domain: stage.imazsak.hu
+      rabbitmq_domain: rabbitmq-stage.imazsak.hu
+  backend:
+    subcomponents:
+      rabbitmq-secret:
+        config:
+          rabbitmq_password: # set it for changing
+      tutelar:
+        config:
+          image_version: v1.0.0-alpha-7
+          domain: stage.imazsak.hu
+          mongo_database_uri: # set it for changing
+          basic_hook_secret: # set it for changing
+          jwt:
+            short_token_secret: # set it for changing
+            long_token_secret: # set it for changing
+          oauth2:
+            google:
+              client_id: # set it for changing
+              client_secret: # set it for changing
+            facebook:
+              client_id: # set it for changing
+              client_secret: # set it for changing
+      imazsak-core:
+        config:
+          image_version: de6541d5ed061cebd9513494200907c3cbf6374e
+          push_notification:
+            public_key: # set it for changing
+            private_key: # set it for changing

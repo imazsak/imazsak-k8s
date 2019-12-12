@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: imazsak-core
+    labels:
+        app: imazsak-core
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: imazsak-core
+    template:
+        metadata:
+            labels:
+                app: imazsak-core
+        spec:
+            containers:
+                - name: imazsak-core
+                  image: "{{ .Values.image }}:{{ .Values.image_version }}"
+                  ports:
+                      - containerPort: 9000
+                  env:
+                      - name: JWT_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: auth-jwt
+                                key: short_token_secret
+                      - name: AUTH_HOOK_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: tutelar-imazsak-hook
+                                key: basic_hook_secret
+                      - name: DB_URI
+                        valueFrom:
+                            secretKeyRef:
+                                name: mongo-database-uri
+                                key: uri
+                      - name: PUSH_NOTIFICATION_PUBLIC_KEY
+                        valueFrom:
+                            secretKeyRef:
+                                name: vapid-push-notification
+                                key: public_key
+                      - name: PUSH_NOTIFICATION_PRIVATE_KEY
+                        valueFrom:
+                            secretKeyRef:
+                                name: vapid-push-notification
+                                key: private_key
+                      - name: AMQP_URI
+                        valueFrom:
+                            secretKeyRef:
+                                name: rabbitmq-secret
+                                key: amqp-uri
+                      - name: TRACER_CLIENT
+                        value: "off"

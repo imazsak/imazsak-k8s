@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: "0.1"
+description: Tutelar auth service
+home: https://helm.sh/helm
+name: tutelar
+sources:
+  - https://github.com/helm/helm
+version: 0.1.0

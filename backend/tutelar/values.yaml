@@ -1,0 +1,14 @@
+image_version:
+domain:
+mongo_database_uri:
+basic_hook_secret:
+jwt:
+  short_token_secret:
+  long_token_secret:
+oauth2:
+  google:
+    client_id:
+    client_secret:
+  facebook:
+    client_id:
+    client_secret:

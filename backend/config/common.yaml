@@ -1,0 +1,10 @@
+subcomponents:
+  rabbitmq:
+    config:
+      image:
+        tag: 3.8.2
+      persistence:
+        enabled: false
+      rabbitmq:
+        username: imazsak
+        existingPasswordSecret: rabbitmq-secret

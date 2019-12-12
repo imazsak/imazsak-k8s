@@ -1,0 +1,78 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: tutelar
+    labels:
+        app: tutelar
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: tutelar
+    template:
+        metadata:
+            labels:
+                app: tutelar
+        spec:
+            containers:
+                - name: tutelar
+                  image: "teamwanari/tutelar:{{ .Values.image_version }}"
+                  ports:
+                      - containerPort: 9000
+                  env:
+                      - name: MODULES_ENABLED
+                        value: "health,facebook,google"
+                      - name: ROOT_URL
+                        value: "https://{{ .Values.domain }}/auth"
+                      - name: CALLBACK_SUCCESS
+                        value: "https://{{ .Values.domain }}/login?token=<<TOKEN>>&refresh_token=<<REFRESH_TOKEN>>"
+                      - name: CALLBACK_FAILURE
+                        value: "https://{{ .Values.domain }}/login?error=<<ERROR>>"
+                      - name: FACEBOOK_CLIENT_ID
+                        valueFrom:
+                            secretKeyRef:
+                                name: oauth2-facebook
+                                key: client_id
+                      - name: FACEBOOK_CLIENT_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: oauth2-facebook
+                                key: client_secret
+                      - name: GOOGLE_CLIENT_ID
+                        valueFrom:
+                            secretKeyRef:
+                                name: oauth2-google
+                                key: client_id
+                      - name: GOOGLE_CLIENT_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: oauth2-google
+                                key: client_secret
+                      - name: LONG_JWT_EXPIRATION_TIME
+                        value: "7d"
+                      - name: SHORT_JWT_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: auth-jwt
+                                key: short_token_secret
+                      - name: LONG_JWT_SECRET
+                        valueFrom:
+                            secretKeyRef:
+                                name: auth-jwt
+                                key: long_token_secret
+                      - name: HOOK_BASE_PATH
+                        value: "http://imazsak-core:9000/core/hooks"
+                      - name: HOOK_AUTH_TYPE
+                        value: basic
+                      - name: HOOK_BASIC_PASSWORD
+                        valueFrom:
+                            secretKeyRef:
+                                name: tutelar-imazsak-hook
+                                key: basic_hook_secret
+                      - name: DATABASE_TYPE
+                        value: "mongo"
+                      - name: MONGO_URI
+                        valueFrom:
+                            secretKeyRef:
+                                name: mongo-database-uri
+                                key: uri

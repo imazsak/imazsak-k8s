@@ -1,0 +1,13 @@
+name: imazsak-cluster
+subcomponents:
+  - name: frontend
+    type: helm
+    method: "local"
+    path: "./frontend"
+  - name: ingress
+    type: helm
+    method: "local"
+    path: "./ingress"
+  - name: backend
+    method: "local"
+    path: "./backend"

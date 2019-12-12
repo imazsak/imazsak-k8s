@@ -1,0 +1,19 @@
+name: backend
+subcomponents:
+  - name: rabbitmq-secret
+    type: helm
+    method: "local"
+    path: "./rabbitmq-secret"
+  - name: rabbitmq
+    type: helm
+    method: "git"
+    source: "https://github.com/helm/charts"
+    path: "stable/rabbitmq"
+  - name: tutelar
+    type: helm
+    method: "local"
+    path: "./tutelar"
+  - name: imazsak-core
+    type: helm
+    method: "local"
+    path: "./imazsak-core"
