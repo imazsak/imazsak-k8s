@@ -57,6 +57,13 @@ spec:
                     backend:
                         serviceName: tutelar
                         servicePort: 9000
+        - host: "{{ .Values.domain }}"
+          http:
+              paths:
+                  - path: /api(/|$)(.*)
+                    backend:
+                        serviceName: imazsak-core
+                        servicePort: 9000
     tls:
         - hosts:
               - "{{ .Values.domain }}"
