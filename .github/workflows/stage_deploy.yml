@@ -18,6 +18,7 @@ jobs:
           fab install && \
           fab generate stage && \
           kubectl \
+            --insecure-skip-tls-verify \
             --server=${{ secrets.STAGE_SERVER }} \
             --token=${{ secrets.STAGE_TOKEN }} \
             -n imazsak-stage \
