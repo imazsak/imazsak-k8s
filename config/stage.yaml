@@ -5,7 +5,7 @@ subcomponents:
       admin:
         image_version: 139738d07e590aba412e5bf579df14ec34ac0ab4
       web:
-        image_version: 1a3619a6b1d0420392f7d50b94f473c4b0ef8b5c
+        image_version: 6bcefa85b5a7d80f0037047911a49d6761f320b6
   ingress:
     config:
       domain: stage.imazsak.hu
