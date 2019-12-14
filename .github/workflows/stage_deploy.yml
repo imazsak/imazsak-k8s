@@ -1,0 +1,25 @@
+name: Stage Deploy
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  stage_deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Deploy staging
+      run: |
+        docker run -v $(pwd):/cluster -w /cluster ksisu/fabrikate \
+          fab install && \
+          fab generate stage && \
+          kubectl \
+            --server=${{ secrets.STAGE_SERVER }} \
+            --token=${{ secrets.STAGE_TOKEN }} \
+            -n imazsak-stage \
+            apply -f -R ./generated/stage
+        
