@@ -3,7 +3,7 @@ subcomponents:
   frontend:
     config:
       admin:
-        image_version: 139738d07e590aba412e5bf579df14ec34ac0ab4
+        image_version: b80724136cb7187b403689374e16824b9065e64b
       web:
         image_version: 6bcefa85b5a7d80f0037047911a49d6761f320b6
   ingress:
