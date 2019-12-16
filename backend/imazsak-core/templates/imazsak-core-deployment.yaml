@@ -52,3 +52,5 @@ spec:
                                 key: amqp-uri
                       - name: TRACER_CLIENT
                         value: "off"
+                      - name: LOG_CONSOLE_JSON
+                        value: "true"

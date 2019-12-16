@@ -76,3 +76,5 @@ spec:
                             secretKeyRef:
                                 name: mongo-database-uri
                                 key: uri
+                      - name: LOG_CONSOLE_JSON
+                        value: "true"
