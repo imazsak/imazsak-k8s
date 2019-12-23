@@ -36,7 +36,7 @@ subcomponents:
               client_secret: # set it for changing
       imazsak-core:
         config:
-          image_version: fbc2823ef7f88333353e69a96a8670ee700c7fe1
+          image_version: d93a3d120f7c5c8dbac5e61401c9a62cef861669
           push_notification:
             public_key: # set it for changing
             private_key: # set it for changing
