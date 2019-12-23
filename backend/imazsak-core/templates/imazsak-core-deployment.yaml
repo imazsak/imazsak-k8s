@@ -54,3 +54,10 @@ spec:
                         value: "off"
                       - name: LOG_CONSOLE_JSON
                         value: "true"
+                      - name: REDIS_HOST
+                        value: "redis-master"
+                      - name: REDIS_PASSWORD
+                        valueFrom:
+                          secretKeyRef:
+                            name: redis-secret
+                            key: redis-password
