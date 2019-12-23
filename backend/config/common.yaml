@@ -8,3 +8,12 @@ subcomponents:
       rabbitmq:
         username: imazsak
         existingPasswordSecret: rabbitmq-secret
+  redis:
+    config:
+      existingSecret: redis-secret
+      existingSecretPasswordKey: redis-password
+      cluster:
+        enabled: false
+      master:
+        persistence:
+          enabled: false

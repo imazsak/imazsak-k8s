@@ -9,6 +9,15 @@ subcomponents:
     method: "git"
     source: "https://github.com/helm/charts"
     path: "stable/rabbitmq"
+  - name: redis-secret
+    type: helm
+    method: "local"
+    path: "./redis-secret"
+  - name: redis
+    type: helm
+    method: "git"
+    source: "https://github.com/helm/charts"
+    path: "stable/redis"
   - name: tutelar
     type: helm
     method: "local"

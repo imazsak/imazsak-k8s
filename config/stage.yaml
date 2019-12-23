@@ -15,6 +15,9 @@ subcomponents:
       rabbitmq-secret:
         config:
           rabbitmq_password: # set it for changing
+      redis-secret:
+        config:
+          redis_password: # set it for changing
       tutelar:
         config:
           image_version: v1.0.0-alpha-8
