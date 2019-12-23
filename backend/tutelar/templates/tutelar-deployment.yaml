@@ -19,6 +19,18 @@ spec:
                   image: "teamwanari/tutelar:{{ .Values.image_version }}"
                   ports:
                       - containerPort: 9000
+                  livenessProbe:
+                      httpGet:
+                          path: /healthCheck
+                          port: 9000
+                      failureThreshold: 1
+                      periodSeconds: 10
+                  startupProbe:
+                      httpGet:
+                          path: /healthCheck
+                          port: 9000
+                      failureThreshold: 9
+                      periodSeconds: 10
                   env:
                       - name: MODULES_ENABLED
                         value: "health,facebook,google"
