@@ -20,7 +20,7 @@ subcomponents:
           redis_password: # set it for changing
       tutelar:
         config:
-          image_version: v1.0.0-alpha-8
+          image_version: v1.0.0-alpha-9
           domain: stage.imazsak.hu
           mongo_database_uri: # set it for changing
           basic_hook_secret: # set it for changing
