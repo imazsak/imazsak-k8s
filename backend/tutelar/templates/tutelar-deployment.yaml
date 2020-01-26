@@ -70,6 +70,8 @@ spec:
                             secretKeyRef:
                                 name: auth-jwt
                                 key: long_token_secret
+                      - name: HOOK_ENABLED
+                        value: "login"
                       - name: HOOK_BASE_PATH
                         value: "http://imazsak-core:9000/core/hooks"
                       - name: HOOK_AUTH_TYPE
